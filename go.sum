@@ -1,4 +1,6 @@
-github.com/mduvall/go-quip v0.0.0-20160711000209-205ac9897970 h1:kqN28jHFZII60npqXt6hDUBSYNWHPjFggUPuzRYg1iw=
-github.com/mduvall/go-quip v0.0.0-20160711000209-205ac9897970/go.mod h1:gRp9GiJnepjOq24TRxeOCTw2yOdUaoqqYJdAyhruI1Q=
 github.com/mitchellh/mapstructure v1.5.0 h1:jeMsZIYE/09sWLaz43PL7Gy6RuMjD2eJVyuac5Z2hdY=
 github.com/mitchellh/mapstructure v1.5.0/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
+github.com/powwu/go-quip v0.0.0-20250603212517-2c9d4b8300b3 h1:P78AAgP/oTNuvx12JcH2j97FSYv7ekMTPVZvuaA4Ryc=
+github.com/powwu/go-quip v0.0.0-20250603212517-2c9d4b8300b3/go.mod h1:mQCBI0Z5Y5doJcDwMefn/J5Eoj+NzxliAL5KW3mnJYc=
+github.com/powwu/go-quip v0.0.0-20250603223233-b3b40ffe3d5e h1:tmMnIIsFDJ5x7Rjp8vqC65n+i29Q8eDAlhlNJscGwWg=
+github.com/powwu/go-quip v0.0.0-20250603223233-b3b40ffe3d5e/go.mod h1:mQCBI0Z5Y5doJcDwMefn/J5Eoj+NzxliAL5KW3mnJYc=
