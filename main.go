@@ -11,27 +11,41 @@ import (
 	"github.com/powwu/go-quip"
 )
 
-func main() {
-	// Checks
-	token := os.Getenv("QUIP_TOKEN")
-	if token == "" {
-		panic("Set your quip token using the QUIP_TOKEN environment variable.")
+func usage() string {
+	execName := filepath.Base(os.Args[0])
+	if strings.Contains(os.Args[0], "go-build") {
+		execName = "go run main.go"
 	}
 
+	return fmt.Sprintf("\nEnvironment Variables:\n(Required) QUIP_TOKEN: Your Quip admin token or personal access token (PAT).\n(Optional) QUIP_ENDPOINT: A URL to a Quip API endpoint. Use this if your company hosts their own Quip instance. (default: \"https://platform.quip.com\")\n\nSyntax:\n%v /path/to/file.csv\n", execName)
+}
+
+func main() {
+	// Checks
 	if len(os.Args) != 2 {
-		panic("Please specify the file to import from.")
+		panic(fmt.Errorf("You need to specify a file. Please review the usage below.\n%v", usage()))
+	}
+
+	if os.Args[1] == "--help" {
+		fmt.Println(usage())
+		return
+	}
+
+	token := os.Getenv("QUIP_TOKEN")
+	if token == "" {
+		panic(fmt.Errorf("You need to set your Quip authorization token via the QUIP_TOKEN environment variable.\n%v", usage()))
 	}
 
 	fileName := os.Args[1]
 	file, err := os.Open(fileName)
 	if err != nil {
-		panic(fmt.Errorf("Could not open file: %v", err))
+		panic(fmt.Errorf("Could not open file: %v\n%v", err, usage()))
 	}
 
 	reader := csv.NewReader(file)
 	records, err := reader.ReadAll()
 	if err != nil {
-		panic(fmt.Errorf("Could not read CSV: %v", err))
+		panic(fmt.Errorf("Could not read CSV: %v\n%v", err, usage()))
 	}
 
 	if len(records) == 0 {
